@@ -21,31 +21,40 @@
 
           src = basti-src;
 
-          npmDepsHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+          npmDepsHash = "sha256-A9h/j4q6/wlHmRBTGpNTiO6manwgQsAUaHjWXKLHZ0k=";
 
           nativeBuildInputs = with pkgs; [
             nodejs_20
             python3
           ];
 
-          buildInputs = with pkgs; [
-            nodePackages.typescript
-          ];
-
-          preBuild = ''
+          buildPhase = ''
+            runHook preBuild
+            cd packages/basti
             npm run build-src
+            cd ../..
+            runHook postBuild
           '';
-
-          dontNpmBuild = true;
 
           installPhase = ''
             runHook preInstall
 
             mkdir -p $out/lib/node_modules/basti
-            cp -r . $out/lib/node_modules/basti
+            cp -r packages/basti/dist $out/lib/node_modules/basti/
+            cp -r packages/basti/bin $out/lib/node_modules/basti/
+            cp packages/basti/package.json $out/lib/node_modules/basti/
+            cp -r node_modules $out/lib/node_modules/basti/
+
+            rm -rf $out/lib/node_modules/basti/node_modules/.bin
+            rm -rf $out/lib/node_modules/basti/node_modules/basti
+            rm -rf $out/lib/node_modules/basti/node_modules/basti-cdk
+            rm -rf $out/lib/node_modules/basti/node_modules/docs
 
             mkdir -p $out/bin
-            ln -s $out/lib/node_modules/basti/packages/basti/bin/run.js $out/bin/basti
+            cat > $out/bin/basti <<EOF
+            #!/bin/sh
+            exec ${pkgs.nodejs_20}/bin/node $out/lib/node_modules/basti/bin/run.js "\$@"
+            EOF
             chmod +x $out/bin/basti
 
             runHook postInstall

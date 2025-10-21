@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "basti-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743224289,
+        "narHash": "sha256-PE1iTe9OW1t3LoxHHsF+8KK13lu51ocNSEFXf9KgHn0=",
+        "owner": "basti-app",
+        "repo": "basti",
+        "rev": "30a8268f59de542da9a4e4591ff47af6cb830aa5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "basti-app",
+        "repo": "basti",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -36,6 +52,7 @@
     },
     "root": {
       "inputs": {
+        "basti-src": "basti-src",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs"
       }
