@@ -21,7 +21,7 @@
 
           src = basti-src;
 
-          npmDepsHash = "sha256-A9h/j4q6/wlHmRBTGpNTiO6manwgQsAUaHjWXKLHZ0k=";
+          npmDepsHash = "sha256-zxXiutwNEyDNr7OPKb/0fKLXvHRFLdgCsGeBat7tpFk=";
 
           npmWorkspace = "packages/basti";
 

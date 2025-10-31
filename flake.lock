@@ -3,11 +3,11 @@
     "basti-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1743224289,
-        "narHash": "sha256-PE1iTe9OW1t3LoxHHsF+8KK13lu51ocNSEFXf9KgHn0=",
+        "lastModified": 1761886502,
+        "narHash": "sha256-KSoHL4H0vIF2XIxynSQelnMWKfbZiliBsgPxMix/Ooc=",
         "owner": "basti-app",
         "repo": "basti",
-        "rev": "30a8268f59de542da9a4e4591ff47af6cb830aa5",
+        "rev": "bbb31e147121897a94b4d352d8b1faeebc697959",
         "type": "github"
       },
       "original": {
