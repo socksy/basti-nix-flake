@@ -25,10 +25,6 @@
 
           npmWorkspace = "packages/basti";
 
-          nativeBuildInputs = with pkgs; [
-            python3
-          ];
-
           npmBuildScript = "build-src";
 
           postInstall = ''
