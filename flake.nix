@@ -29,6 +29,7 @@
 
           postInstall = ''
             rm -rf $out/lib/node_modules/*/node_modules/{.bin,basti,basti-cdk,docs}
+            ln -sf ../lib/node_modules/basti-monorepo/bin/run.js $out/bin/basti
           '';
 
           meta = with pkgs.lib; {
